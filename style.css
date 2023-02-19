@@ -38,3 +38,61 @@ body {
   flex-direction: column;
   gap: .5rem;
 }
+
+.modal {
+  --gap: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap);
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-inner {
+  background-color: #fff;
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.modal-top {
+  display: flex;
+  align-items: center;
+  background-color: #eeeeee;
+}
+
+.modal-title {
+  flex-grow: 1;
+  padding: 0 var(--gap);
+  font-size: 20px;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--gap);
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.modal-content {
+  padding: var(--gap);
+}
+
+.remove-modal {
+  display: none;
+}
+
+#add-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

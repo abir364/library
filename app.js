@@ -71,6 +71,7 @@ addBookToLibrary(theHobbit);
 addBookToLibrary(theLOR);
 
 // printLibrary();
+const modal = document.querySelector('.modal');
 
 const form = document.getElementById('form');
 form.addEventListener('submit',(event)=>{
@@ -80,4 +81,15 @@ form.addEventListener('submit',(event)=>{
   addBookToLibrary(newBook);
   // printLibrary();
   form.reset();
+  modal.classList.add('remove-modal');
+});
+
+const addBook = document.getElementById('add-book');
+addBook.addEventListener('click', () => {
+  modal.classList.remove('remove-modal');
+});
+
+const closeModal = document.querySelector('.modal-close');
+closeModal.addEventListener('click', () => {
+  modal.classList.add('remove-modal');
 });
