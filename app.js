@@ -17,6 +17,11 @@ Book.prototype.info = function() {
   }
 };
 
+Book.prototype.changeRead = function() {
+  this.read = !this.read;
+  console.log(this.read);
+}
+
 
 function createCard(book) {
   const card = document.createElement('div');
@@ -40,9 +45,14 @@ function createCard(book) {
   pages.textContent=`page count: ${  book.pages}`;
   card.appendChild(pages);
 
-  const read = document.createElement('p');
-  read.textContent= book.read ? 'You read it' : 'You did not read it';
-  card.appendChild(read);
+  const readDiv = document.createElement('div');
+  const read = document.createElement('button');
+  readDiv.appendChild(read);
+  readDiv.classList.add('readDiv');
+  read.textContent= book.read ? 'Read' : 'Not Read';
+  read.classList.add('readBtn');
+  read.classList.add(book.read ? 'green' : 'red');
+  card.appendChild(readDiv);
 
   card.setAttribute('data-id', book.title);
   
@@ -69,19 +79,25 @@ function printLibrary() {
     const del = b.dataset.id;
     const curCard = cards.querySelector(`div[data-id="${del}"]`);
     cards.removeChild(curCard);
+    const index = library.findIndex((book) => book.title === del);
+    library.splice(index,1);
+    console.log(library);
   });
+
+  const reads = document.querySelectorAll('.readBtn');
+  reads.forEach((r) => {
+    r.addEventListener('click',() => {
+      console.log('click');
+    });
+  });
+  
 });
+
 }
 
 function addBookToLibrary(book) {
   library.push(book);
   printLibrary();
-
-  // const cards = document.getElementById('card-container');
-  // cards.classList.add('cards');
-  // const card = createCard(book);
-  // card.setAttribute('data-id', book.title);
-  // cards.appendChild(card);
 }
 
 const theHobbit = new Book('The Hobbit', 'J. R. R. Tolkien', 310, false);
@@ -115,10 +131,3 @@ closeModal.addEventListener('click', () => {
   modal.classList.add('remove-modal');
 });
 
-// const deleteBtns = document.querySelectorAll('.deleteBtn');
-// deleteBtns.forEach((b) => {
-//   console.log(b)
-//   b.addEventListener('click', () => {
-//     console.log(b.dataset.id);
-//   });
-// });

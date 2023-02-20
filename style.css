@@ -23,7 +23,7 @@ body {
   padding: 2rem;
   border-radius: 1.5rem;
   width: 45%;
-  height: 30vh;
+  height: 32vh;
 }
 
 .main {
@@ -116,4 +116,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.readBtn {
+  margin-top: 5px;
+  height: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.green {
+  background-color: greenyellow;
+}
+
+.red {
+  background-color: red;
+}
+
+.readDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
