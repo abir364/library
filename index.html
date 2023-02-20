@@ -33,17 +33,17 @@
           <input type="text" name="author" id="author" required>
     
           <label for="page">Page count</label>
-          <input type="number" inputmode="numeric" pattern="[0-9]+" name="page" id="page" required>
+          <input type="number" min="0" inputmode="numeric" pattern="[0-9]+" name="page" id="page" required>
     
           <div class="read">
             <p>Have you read it?</p>
             <input type="checkbox" name="read" id="yes">
             <label for="yes">Yes</label>
-            <!-- <input type="radio" name="read" id="no">
-            <label for="no">No</label> -->
           </div>
     
-          <input type="submit" id="submit" value="submit">
+          <div class="submitBtn">
+            <input type="submit" id="submit" value="submit">
+          </div>
         </form>
       </div>
     </div>

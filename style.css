@@ -13,7 +13,7 @@ body {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  /* justify-content: space-around; */
+  justify-content: space-around;
   align-items: center;
   width: 90%;
 }
@@ -22,7 +22,7 @@ body {
   border: 1px solid grey;
   padding: 2rem;
   border-radius: 1.5rem;
-  width: 30%;
+  width: 45%;
   height: 30vh;
 }
 
@@ -73,7 +73,7 @@ body {
   font-size: 20px;
 }
 
-.modal-close {
+.modal-close, .deleteBtn {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -92,6 +92,27 @@ body {
 }
 
 #add-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBtn {
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+#submit {
+  height: 2rem;
+  width: 20rem;
+}
+
+#author, #title, #page {
+  height: 2rem;
+}
+
+.submitBtn {
   display: flex;
   align-items: center;
   justify-content: center;
