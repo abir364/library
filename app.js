@@ -1,28 +1,53 @@
 const library = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = Boolean(read);
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.pages = pages;
+    this.read = Boolean(read);
+    this.author = author;
+  }
+
+  info() {
+    console.log(
+      `${this.title} is written by ${this.author} has ${this.pages} pages`
+    );
+    if (this.read) {
+      console.log(`You are reading${this.title}`);
+    } else {
+      console.log(`You are not reading ${this.title}`);
+    }
+  }
+
+  changeRead(val) {
+    this.read = Boolean(val);
+    // console.log(this.read);
+  }
 }
 
-Book.prototype.info = function () {
-  console.log(
-    `${this.title} is written by ${this.author} has ${this.pages} pages`
-  );
-  // read ? (console.log(`You are reading ${title}`)) : (console.log(`You are reading ${title}`));
-  if (this.read) {
-    console.log(`You are reading${this.title}`);
-  } else {
-    console.log(`You are not reading ${this.title}`);
-  }
-};
+// function Book(title, author, pages, read) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = Boolean(read);
+// }
 
-Book.prototype.changeRead = function (val) {
-  this.read = Boolean(val);
-  // console.log(`${this.title  } ${ this.read}`);
-};
+// Book.prototype.info = function () {
+//   console.log(
+//     `${this.title} is written by ${this.author} has ${this.pages} pages`
+//   );
+//   // read ? (console.log(`You are reading ${title}`)) : (console.log(`You are reading ${title}`));
+//   if (this.read) {
+//     console.log(`You are reading${this.title}`);
+//   } else {
+//     console.log(`You are not reading ${this.title}`);
+//   }
+// };
+
+// Book.prototype.changeRead = function (val) {
+//   this.read = Boolean(val);
+//   // console.log(`${this.title  } ${ this.read}`);
+// };
 
 function createCard(book) {
   const card = document.createElement("div");
@@ -70,7 +95,7 @@ function printLibrary() {
   }
 
   for (let i = 0; i < library.length; i += 1) {
-    // console.log(library[i].title);
+    // console.log(library[i]);
     cards.appendChild(createCard(library[i]));
   }
 
